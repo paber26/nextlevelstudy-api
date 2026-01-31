@@ -37,3 +37,4 @@ Route::get('/banksoal/{id}', [BankSoalController::class, 'show']);
 Route::put('/banksoal/{id}', [BankSoalController::class, 'update']);
 
 Route::get('/tryout', [TryoutController::class, 'index']);
+Route::post('/tryout', [TryoutController::class, 'store']);

@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tryout extends Model
 {
-    protected $table = 'tryouts';
+    protected $table = 'tryout';
 
     protected $fillable = [
-        'judul',
+        'paket',
         'mapel_id',
-        'deskripsi',
-        'status',
+        'durasi_menit',
+        'mulai',
+        'selesai',
+        'is_active',
         'created_by'
     ];
 
