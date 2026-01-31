@@ -42,11 +42,20 @@ class AuthController extends Controller
         }
 
         // print_r($user->toArray()); exit;
+        // $token = $user->createToken('google-token')->plainTextToken;
+
+        // return response()->json([
+        //     'token' => $token,
+        //     'user' => $user
+        // ]);
+
         $token = $user->createToken('google-token')->plainTextToken;
 
-        return response()->json([
-            'token' => $token,
-            'user' => $user
-        ]);
+        // URL frontend kamu (Vite)
+        $frontendUrl = 'http://localhost:5173/oauth/callback';
+
+        return redirect()->away(
+            $frontendUrl . '?token=' . $token
+        );
     }
 }
