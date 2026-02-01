@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BankSoalController;
 use App\Http\Controllers\Api\TryoutController;
+use App\Http\Controllers\Api\TryoutSoalController;
 // use app/Http/Controllers/api/AuthController.php
 use Illuminate\Http\Request;
 use App\Models\Mapel;
@@ -30,11 +31,22 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/mapel', function () {
         return Mapel::select('id', 'nama', 'tingkat')->orderBy('nama')->get();
     });
+    
+    Route::get('/banksoal', [BankSoalController::class, 'index']);
+    Route::get('/banksoaltryout', [BankSoalController::class, 'listForTryout']);
+    // Route::get('/banksoal/tryout', [BankSoalController::class, 'listForTryout']);
     Route::post('/banksoal', [BankSoalController::class, 'store']);
+    Route::get('/banksoal/{id}', [BankSoalController::class, 'show']);
+    Route::put('/banksoal/{id}', [BankSoalController::class, 'update']);
+    
+    Route::get('/tryout', [TryoutController::class, 'index']);
+    Route::post('/tryout', [TryoutController::class, 'store']);
+    Route::get('/tryout/{id}', [TryoutController::class, 'show']);
+    Route::put('/tryout/{id}', [TryoutController::class, 'update']);
+
+    Route::get('/tryout/{id}/soal', [TryoutSoalController::class, 'index']);
+    Route::get('/tryout/{id}/soal-detail', [TryoutSoalController::class, 'indexDetail']);
+    Route::post('/tryout/{id}/soal', [TryoutSoalController::class, 'store']);
+    Route::delete('/tryout/{id}/soal/{banksoalId}', [TryoutSoalController::class, 'destroy']);
+    Route::put('/tryout/{id}/soal/urutan', [TryoutSoalController::class, 'updateUrutan']);
 });
-
-Route::get('/banksoal/{id}', [BankSoalController::class, 'show']);
-Route::put('/banksoal/{id}', [BankSoalController::class, 'update']);
-
-Route::get('/tryout', [TryoutController::class, 'index']);
-Route::post('/tryout', [TryoutController::class, 'store']);

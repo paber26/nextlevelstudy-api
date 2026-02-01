@@ -38,31 +38,18 @@ class BankSoalController extends Controller
      * Digunakan khusus untuk pemilihan soal ke tryout
      * (ringan & tanpa perhitungan tambahan)
      */
-    public function listForTryout(Request $request)
+    public function listForTryout()
     {
-        $query = BankSoal::query()
-            ->with('mapel:id,nama');
+        // return 'oke';
+        $data = BankSoal::select([
+                'id',
+                'pertanyaan',
+                'mapel_id'
+            ])
+            ->orderByDesc('created_at')
+            ->get();
 
-        // 🔍 filter keyword soal
-        if ($request->filled('q')) {
-            $query->where('pertanyaan', 'like', '%' . $request->q . '%');
-        }
-
-        // 🔍 filter mapel
-        if ($request->filled('mapel_id')) {
-            $query->where('mapel_id', $request->mapel_id);
-        }
-
-        return response()->json(
-            $query->latest()->get()->map(function ($soal) {
-                return [
-                    'id'          => $soal->id,
-                    'pertanyaan'  => $soal->pertanyaan,
-                    'mapel_id'    => $soal->mapel_id,
-                    'mapel_nama'  => $soal->mapel?->nama,
-                ];
-            })
-        );
+        return response()->json($data);
     }
 
 
