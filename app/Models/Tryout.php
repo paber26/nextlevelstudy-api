@@ -14,7 +14,7 @@ class Tryout extends Model
         'durasi_menit',
         'mulai',
         'selesai',
-        'is_active',
+        'status',
         'created_by'
     ];
 
