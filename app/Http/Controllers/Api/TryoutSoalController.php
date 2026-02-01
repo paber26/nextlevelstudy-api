@@ -26,6 +26,7 @@ class TryoutSoalController extends Controller
                     'id'         => $item->banksoal->id,
                     'pertanyaan' => $item->banksoal->pertanyaan,
                     'urutan'     => $item->urutan,
+                    'poin'       => $item->poin,
                 ];
             });
 
@@ -59,6 +60,8 @@ class TryoutSoalController extends Controller
                     'jawaban_label' => $jawabanLabel,
                     'pembahasan'    => $item->banksoal->pembahasan,
                     'urutan'        => $item->urutan,
+                    // ⬇️ POIN DARI tryout_soal
+                    'poin'          => $item->poin,
                     'opsi' => $opsi->map(function ($o) {
                         return [
                             'id'         => $o->id,
@@ -156,5 +159,20 @@ class TryoutSoalController extends Controller
         ]);
     }
 
-    
+    public function updatePoin(Request $request, $tryoutId, $banksoalId)
+    {
+        $data = $request->validate([
+            'poin' => 'required|integer|min:0'
+        ]);
+
+        TryoutSoal::where('tryout_id', $tryoutId)
+            ->where('banksoal_id', $banksoalId)
+            ->update([
+                'poin' => $data['poin']
+            ]);
+
+        return response()->json([
+            'message' => 'Poin berhasil diperbarui'
+        ]);
+    }
 }

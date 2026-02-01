@@ -49,4 +49,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/tryout/{id}/soal', [TryoutSoalController::class, 'store']);
     Route::delete('/tryout/{id}/soal/{banksoalId}', [TryoutSoalController::class, 'destroy']);
     Route::put('/tryout/{id}/soal/urutan', [TryoutSoalController::class, 'updateUrutan']);
+    Route::put('/tryout/{id}/soal/{banksoalId}/poin', [TryoutSoalController::class, 'updatePoin']);
 });
