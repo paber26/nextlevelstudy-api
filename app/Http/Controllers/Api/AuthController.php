@@ -21,11 +21,12 @@ class AuthController extends Controller
         $googleUser = Socialite::driver('google')
             ->stateless()
             ->user();
-
+        
+            
         $user = User::where('google_id', $googleUser->id)
             ->orWhere('email', $googleUser->email)
             ->first();
-
+            
         if (! $user) {
             $user = User::create([
                 'name' => $googleUser->name,

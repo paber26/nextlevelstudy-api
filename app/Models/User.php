@@ -26,6 +26,8 @@ class User extends Authenticatable
         'avatar',
     ];
 
+    
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -48,4 +50,6 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
 }
