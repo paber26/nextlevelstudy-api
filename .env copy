@@ -24,9 +24,13 @@ LOG_LEVEL=debug
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=nextlevelstudy
-DB_USERNAME=rNHBL4SmpTmWYLXh
-DB_PASSWORD=S2XGv7GtRBgyEV26
+# DB_DATABASE=nextlevelstudy
+# DB_USERNAME=rNHBL4SmpTmWYLXh
+# DB_PASSWORD=S2XGv7GtRBgyEV26
+
+DB_DATABASE=dbnextlevelstudy
+DB_USERNAME=dbnextlevelstudy
+DB_PASSWORD=XmEXfknZYiBF2Sii
 
 SESSION_DRIVER=database
 SESSION_LIFETIME=120
@@ -71,7 +75,7 @@ FRONTEND_USER_URL=http://osn.next-level-study.com
 FRONTEND_ADMIN_URL=https://nls-admin.next-level-study.com
 
 
-GOOGLE_CLIENT_ID=1030309697605-niaaof93facusicrrd8slu1m040oimcf.apps.googleusercontent.com
-GOOGLE_CLIENT_SECRET=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
-GOOGLE_REDIRECT_URI=http://127.0.0.1:8000/api/auth/google/callback
-GOOGLE_REDIRECT_URI=http://127.0.0.1:8000/api/auth/google/callback
+GOOGLE_CLIENT_ID=1030309697605-i6ne9fpbai6sc7o523j455ukaqhcp5rb.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=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
+GOOGLE_REDIRECT_URI=https://deploy-api-nls.next-level-study.com/api/auth/google/callback
+# GOOGLE_REDIRECT_URI=http://127.0.0.1:8000/api/auth/google/callback
