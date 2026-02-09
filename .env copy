@@ -1,8 +1,9 @@
 APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=
+APP_KEY=base64:jrLzw5P0pRiMIkUmqm2W3L6/HxokcNcBJUnioP13Y2s=
 APP_DEBUG=true
-APP_URL=http://sduki9.litesa.xyz
+APP_URL=http://localhost
+# APP_URL=http://sduki9.litesa.xyz
 
 APP_LOCALE=en
 APP_FALLBACK_LOCALE=en
@@ -66,8 +67,11 @@ AWS_USE_PATH_STYLE_ENDPOINT=false
 
 VITE_APP_NAME="${APP_NAME}"
 
-FRONTEND_URL=o9iju3.satempdemo.xyz
+FRONTEND_USER_URL=http://osn.next-level-study.com
+FRONTEND_ADMIN_URL=https://nls-admin.next-level-study.com
+
+
 GOOGLE_CLIENT_ID=1030309697605-niaaof93facusicrrd8slu1m040oimcf.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=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
-# GOOGLE_REDIRECT_URI=http://localhost:8000/api/auth/google/callback
-GOOGLE_REDIRECT_URI=o9iju3.satempdemo.xyz/api/auth/google/callback
+GOOGLE_REDIRECT_URI=http://127.0.0.1:8000/api/auth/google/callback
+GOOGLE_REDIRECT_URI=http://127.0.0.1:8000/api/auth/google/callback
